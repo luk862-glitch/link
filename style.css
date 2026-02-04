@@ -5,22 +5,27 @@
     --bg-color:#f6cfdc;
 
     --body-copy: 1rem;
-    --heading-copy: calc(var(--body-copy)*3.5);
+    --heading-copy: calc(var(--body-copy)*3.8);
 
     --gutter: 2rem;
     --vertical: 8rem;
     --spacing: .5rem;
 
     --script: 'Pinyon Script';
-
-    font-size: 110%;
 }
 
 body {
     background-color: var(--bg-color);
     margin-inline: var(--gutter);
+    font-size: 110%;
 }
 
+@media (width>600px) {
+
+    body {
+    margin-inline: var(--gutter);
+    }
+}
 
 main{
     text-align: right;
@@ -37,8 +42,34 @@ h1 {
     color: var(--color);
     font-size: var(--heading-copy);
     padding-block: var(--spacing);
-    display: flex;
-    justify-content: center;
+    text-align: center;
+}
+
+
+@media (width>600px) {
+
+    h1 {
+        font-size: calc(var(--heading-copy)*1.5);
+    }
+}
+
+@media (width>800px) {
+
+    h1 {
+        font-size: calc(var(--heading-copy)*2);
+    }
+}
+
+@media (width>1100px) {
+
+    h1 {
+        font-size: calc(var(--heading-copy)*2.5);
+    }
+}
+
+
+.header-left {
+    font-size: calc(var(--body-copy)*1.2);
 }
 
 .header-right {
@@ -46,9 +77,28 @@ h1 {
     font-size: calc(var(--body-copy)*1.2);
 }
 
-.header-left {
-    font-size: calc(var(--body-copy)*1.2);
+
+@media (width>850px) {
+
+    .header-left {
+    padding-left: calc(var(--gutter)*3);
 }
+    .header-right {
+    padding-right: calc(var(--gutter)*3);
+}
+}
+
+@media (width>1100px) {
+
+    .header-left {
+    padding-left: calc(var(--gutter)*6);
+}
+    .header-right {
+    padding-right: calc(var(--gutter)*6);
+}
+}
+
+
 
 p {
     color: var(--color);
@@ -66,6 +116,19 @@ nav {
 
 img {
     padding-top: var(--gutter);
+}
+
+@media (width>600px) {
+
+    div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    img {
+    max-width: 100vh;
+    }
 }
 
 a {
