@@ -118,6 +118,7 @@ nav {
 
 #channel-blocks {
   display: grid;
+  gap: var(--gutter);
 }
 
 @media (width>600px) {
@@ -146,7 +147,9 @@ nav {
 /* make each blocks to fit in a fixed squared space */
 .block {
   aspect-ratio: 1 / 1;
-  overflow: hidden; 
+  overflow: hidden;
+  border: .2rem solid var(--color);
+  padding: var(--gutter);
 }
 
 .block img,
@@ -170,6 +173,9 @@ audio {
   text-align: left;
 }
 
+.fig-title {
+    text-align: left;
+}
 /* img {
     padding-top: var(--gutter);
 }
