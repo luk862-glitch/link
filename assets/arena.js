@@ -54,7 +54,7 @@ let renderBlock = (blockData) => {
         
 	 let imageItem =
             `
-            <li>
+            <li class="block">
 			<picture>
 				<source media="(max-width: 500px)" srcset="${ blockData.image?.small?.src_2x || '' }">
 				<source media="(max-width: 1000px)" srcset="${ blockData.image?.medium?.src_2x || '' }">
@@ -83,7 +83,7 @@ let renderBlock = (blockData) => {
 			// …still up to you, but we’ll give you the `video` element:
 			let videoItem =
 				`
-				<li>
+				<li class="block">
 					<video controls src="${ blockData.attachment.url }"></video>
                     <img alt="${blockData.image.alt_text}" src="${ blockData.image.large.src_2x }">
 				</li>
