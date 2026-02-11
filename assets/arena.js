@@ -1,5 +1,5 @@
 let channelSlug = 'dinner-party-szzsmqfsk20' // The “slug” is just the end of the URL.
-let myUsername = 'melody-ekbatani' // For linking to your profile.
+let myUsername = 'katie-lu' // For linking to your profile.
 
 
 
@@ -13,7 +13,7 @@ let placeChannelInfo = (channelData) => {
 
 	// Then set their content/attributes to our data:
 	channelTitle.innerHTML = channelData.title
-	channelDescription.innerHTML = channelData.description.html
+	// channelDescription.innerHTML = channelData.description.html
 	channelCount.innerHTML = channelData.counts.blocks
 	channelLink.href = `https://www.are.na/channel/${channelSlug}`
 }
@@ -31,19 +31,13 @@ let renderBlock = (blockData) => {
 		let linkItem =
 			`
 			<li>
-				<p><em>Link</em></p>
-				<figure>
-					<picture>
-						<source media="(width < 500px)" srcset="${ blockData.image.small.src_2x }">
-						<source media="(width < 1000px)" srcset="${ blockData.image.medium.src_2x }">
-						<img alt="${blockData.image.alt_text}" src="${ blockData.image.large.src_2x }">
-					</picture>
-					<figcaption>
-						<h3>${ blockData.title }</h3>
-						${ blockData.description.html }
-					</figcaption>
-				</figure>
-				<p><a href="${ blockData.source.url }">See the original ↗</a></p>
+			<picture>
+				<source media="(width < 500px)" srcset="${ blockData.image.small.src_2x }">
+				<source media="(width < 1000px)" srcset="${ blockData.image.medium.src_2x }">
+				<img alt="${blockData.image.alt_text}" src="${ blockData.image.large.src_2x }">
+			</picture>
+			<h3>${ blockData.title }</h3>
+			<p><a href="${ blockData.source.url }">View ↗</a></p>
 			</li>
 			`
 
@@ -61,17 +55,12 @@ let renderBlock = (blockData) => {
 	 let imageItem =
             `
             <li>
-                <figure>
-                    <picture>
-                        <source media="(max-width: 500px)" srcset="${ blockData.image?.small?.src_2x || '' }">
-                        <source media="(max-width: 1000px)" srcset="${ blockData.image?.medium?.src_2x || '' }">
-                        <img alt="${ blockData.image?.alt_text || '' }" src="${ blockData.image?.large?.src_2x || blockData.image?.large?.url || '' }">
-                    </picture>
-                    <figcaption>
-                        <h3>${ blockData.title || '' }</h3>
-                        ${ blockData.description?.html || '' }
-                    </figcaption>
-                </figure>
+			<picture>
+				<source media="(max-width: 500px)" srcset="${ blockData.image?.small?.src_2x || '' }">
+				<source media="(max-width: 1000px)" srcset="${ blockData.image?.medium?.src_2x || '' }">
+				<img alt="${ blockData.image?.alt_text || '' }" src="${ blockData.image?.large?.src_2x || blockData.image?.large?.url || '' }">
+			</picture>
+			<h3>${ blockData.title || '' }</h3>
             </li>
             `
 
@@ -98,10 +87,7 @@ let renderBlock = (blockData) => {
 					<video controls src="${ blockData.attachment.url }"></video>
                     <img alt="${blockData.image.alt_text}" src="${ blockData.image.large.src_2x }">
 				</li>
-                                    <figcaption>
-                        <h3>${ blockData.title || '' }</h3>
-                        ${ blockData.description?.html || '' }
-                    </figcaption>
+                <h3>${ blockData.title || '' }</h3>
 				`
 
 			channelBlocks.insertAdjacentHTML('beforeend', videoItem)
@@ -121,7 +107,6 @@ let renderBlock = (blockData) => {
 			let audioItem =
 				`
 				<li>
-					<p><em>Audio</em></p>
 					<audio controls src="${ blockData.attachment.url }"></video>
 				</li>
 				`
@@ -133,6 +118,8 @@ let renderBlock = (blockData) => {
 		}
 	}
 
+	
+
 	// Linked (embedded) media…
 	else if (blockData.type == 'Embed') {
 		let embedType = blockData.embed.type
@@ -141,12 +128,11 @@ let renderBlock = (blockData) => {
 		if (embedType.includes('video')) {
 			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
-				`
-				<li>
-					<p><em>Linked Video</em></p>
-					${ blockData.embed.html }
-				</li>
-				`
+			`
+			<li>
+				${ blockData.embed.html }
+			</li>
+			`
 
 			channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem)
 
@@ -194,7 +180,7 @@ let fetchJson = (url, callback) => {
 
 
 // Now that we have said all the things we *can* do, go get the channel data:
-fetchJson(`https://www.are.na/melody-ekbatani/dinner-party-szzsmqfsk20}`, (json) => {
+fetchJson(`https://api.are.na/v3/channels/${channelSlug}`, (json) => {
 	console.log(json) // Always good to check your response!
 
 	placeChannelInfo(json) // Pass all the data to the first function, above.
