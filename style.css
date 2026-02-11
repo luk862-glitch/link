@@ -113,8 +113,42 @@ nav {
     text-decoration: underline var(--color);
 }
 
+#channel-blocks {
+  display: grid;
+}
 
-img {
+audio {
+  display: block;
+  width: 100%;
+  height: 2rem;
+}
+
+@media (width>600px) {
+
+    #channel-blocks {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gutter);
+    }
+}
+
+@media (width>900px) {
+
+    #channel-blocks {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gutter);
+    }
+}
+
+@media (width>1200px) {
+
+    #channel-blocks {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gutter);
+    }
+}
+
+
+/* img {
     padding-top: var(--gutter);
 }
 
@@ -122,14 +156,14 @@ img {
 
     div {
     display: flex;
-    flex-direction: column;
+    flex-direction: ;
     align-items: center;
     }
 
     img {
     max-width: 100vh;
     }
-}
+} */
 
 a {
     text-decoration: underline;
