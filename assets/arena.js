@@ -95,9 +95,13 @@ let renderBlock = (blockData) => {
 			let videoItem =
 				`
 				<li>
-					<p><em>Video</em></p>
 					<video controls src="${ blockData.attachment.url }"></video>
+                    <img alt="${blockData.image.alt_text}" src="${ blockData.image.large.src_2x }">
 				</li>
+                                    <figcaption>
+                        <h3>${ blockData.title || '' }</h3>
+                        ${ blockData.description?.html || '' }
+                    </figcaption>
 				`
 
 			channelBlocks.insertAdjacentHTML('beforeend', videoItem)
