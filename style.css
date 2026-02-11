@@ -151,11 +151,11 @@ nav {
 
 .block img,
 .block video,
-.block iframe {
+.block iframe{
   width: 100%;
   height: 100%;
-  object-fit: cover; 
-  display: block;
+  object-fit: contain;
+  object-position: top;
 }
 
 audio {
@@ -163,6 +163,12 @@ audio {
 	inline-size: 100%;
 }
 
+/* make text scrollable */
+.text-block {
+  aspect-ratio: 1 / 1;
+  overflow-y: auto;
+  text-align: left;
+}
 
 /* img {
     padding-top: var(--gutter);

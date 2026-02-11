@@ -36,8 +36,7 @@ let renderBlock = (blockData) => {
 				<source media="(width < 1000px)" srcset="${ blockData.image.medium.src_2x }">
 				<img alt="${blockData.image.alt_text}" src="${ blockData.image.large.src_2x }">
 			</picture>
-			<h3>${ blockData.title }</h3>
-			<p><a href="${ blockData.source.url }">View ↗</a></p>
+			<p><a href="${ blockData.source.url }">View↗</a></p>
 			</li>
 			`
 
@@ -71,8 +70,17 @@ let renderBlock = (blockData) => {
 	else if (blockData.type == 'Text') {
 		// …up to you!
 
-        
-	}
+	let textItem = 
+	`
+		<li class="block text-block">
+		<p>${blockData.title || ''}</p>
+		<p>${blockData.content.html || ''}</p>
+		</li>
+	`
+
+	channelBlocks.insertAdjacentHTML('beforeend', textItem)
+}
+
 
 	// Uploaded (not linked) media…
 	else if (blockData.type == 'Attachment') {
