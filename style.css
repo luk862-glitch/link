@@ -1,22 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitcount+Single+Ink:wght@100..900&family=Codystar:wght@300;400&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Imperial+Script&family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sixtyfour&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Single+Ink:wght@100..900&family=Codystar:wght@300;400&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Imperial+Script&family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sixtyfour&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');@import url('https://fonts.googleapis.com/css2?family=Bitcount+Single+Ink:wght@100..900&family=Codystar:wght@300;400&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Imperial+Script&family=Inconsolata:wght@200..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sixtyfour&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Single+Ink:wght@100..900&family=Codystar:wght@300;400&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Imperial+Script&family=Inconsolata:wght@200..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sixtyfour&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
 
 :root {
     --color:#ff0000;
     --bg-color:#ebb9e0;
 
-    --body-copy: 1rem;
-    --heading-copy: calc(var(--body-copy)*3.8);
+    --body-copy: .8rem;
+    --heading-copy: calc(var(--body-copy)*4.5);
 
     --gutter: 2rem;
     --vertical: 8rem;
     --spacing: .5rem;
 
     --script: 'Pinyon Script';
+    --sans-serif: 'Roboto';
 }
 
 body {
     background-color: var(--bg-color);
-    font-size: 110%;
+    font-size: 100%;
 }
 
 
@@ -27,6 +30,7 @@ main{
 
 header {
     padding-block: calc(var(--gutter)*4);
+    padding-inline: var(--gutter);
 }
 
 
@@ -38,6 +42,10 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    font-family: var(--sans-serif);
+    font-size: var(--body-copy);
+}
 
 @media (width>600px) {
 
@@ -92,8 +100,8 @@ h1 {
 }
 
 
-
 p {
+    font-family: var(--sans-serif);
     color: var(--color);
     padding-top: var(--spacing);
 }
