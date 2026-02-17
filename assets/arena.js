@@ -30,7 +30,8 @@ let renderBlock = (blockData) => {
 		// Declares a “template literal” of the dynamic HTML we want.
 		let linkItem =
 			`
-			<li class="block">
+            <li class="block plate">
+			<div class="plate-content">
 			<picture>
 				<source media="(width < 500px)" srcset="${ blockData.image.small.src_2x }">
 				<source media="(width < 1000px)" srcset="${ blockData.image.medium.src_2x }">
@@ -53,14 +54,14 @@ let renderBlock = (blockData) => {
         
 	 let imageItem =
         `
-            <li class="block">
-			<picture>
-				<source media="(max-width: 500px)" srcset="${ blockData.image?.small?.src_2x || '' }">
-				<source media="(max-width: 1000px)" srcset="${ blockData.image?.medium?.src_2x || '' }">
-				<img alt="${ blockData.image?.alt_text || '' }" src="${ blockData.image?.large?.src_2x || blockData.image?.large?.url || '' }">
-			<h3 class="fig-title">${ blockData.title || '' }</h3>
-				</picture>
-            </li>
+        <li class="block plate">
+		<div class="plate-content">
+		<picture>
+			<source media="(max-width: 500px)" srcset="${ blockData.image?.small?.src_2x || '' }">
+			<source media="(max-width: 1000px)" srcset="${ blockData.image?.medium?.src_2x || '' }">
+			<img alt="${ blockData.image?.alt_text || '' }" src="${ blockData.image?.large?.src_2x || blockData.image?.large?.url || '' }">
+			</picture>
+        </li>
         `
 
         channelBlocks.insertAdjacentHTML('beforeend', imageItem)
@@ -72,9 +73,10 @@ let renderBlock = (blockData) => {
 
 	let textItem = 
 	`
-		<li class="block text-block">
-		<p>${blockData.title || ''}</p>
-		<p>${blockData.content.html || ''}</p>
+		<li class="block plate">
+		<div class="plate-content">
+			<p>${blockData.title || ''}</p>
+			<p>${blockData.content.html || ''}</p>
 		</li>
 	`
 
@@ -90,13 +92,13 @@ let renderBlock = (blockData) => {
 		if (contentType.includes('video')) {
 			// …still up to you, but we’ll give you the `video` element:
 			let videoItem =
-				`
-				<li class="block">
-					<video controls src="${ blockData.attachment.url }"></video>
-                    <img alt="${blockData.image.alt_text}" src="${ blockData.image.large.src_2x }">
-				</li>
-                <h3>${ blockData.title || '' }</h3>
-				`
+			`
+            <li class="block plate">
+			<div class="plate-content">
+				<video controls src="${ blockData.attachment.url }"></video>
+				<img alt="${blockData.image.alt_text}" src="${ blockData.image.large.src_2x }">
+			</li>
+			`
 
 			channelBlocks.insertAdjacentHTML('beforeend', videoItem)
 
@@ -113,11 +115,12 @@ let renderBlock = (blockData) => {
 		else if (contentType.includes('audio')) {
 			// …still up to you, but here’s an `audio` element:
 			let audioItem =
-				`
-				<li class="block">
-					<audio controls src="${ blockData.attachment.url }"></video>
-				</li>
-				`
+			`
+			<li class="block plate">
+			<div class="plate-content">
+				<audio controls src="${ blockData.attachment.url }"></audio>
+			</li>
+			`
 
 			channelBlocks.insertAdjacentHTML('beforeend', audioItem)
 
@@ -137,7 +140,8 @@ let renderBlock = (blockData) => {
 			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
 			`
-			<li class="block">
+			<li class="block plate text-block">
+			<div class="plate-content">
 				${ blockData.embed.html }
 			</li>
 			`
