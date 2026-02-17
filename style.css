@@ -191,6 +191,8 @@ a {
 }
 
 .footer {
-    display: flex;
+    display: grid;
     justify-content: center;
+    text-align: center;
+    padding-block: var(--gutter);
 }
