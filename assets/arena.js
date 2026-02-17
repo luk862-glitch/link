@@ -52,16 +52,16 @@ let renderBlock = (blockData) => {
 		// …up to you!
         
 	 let imageItem =
-            `
+        `
             <li class="block">
 			<picture>
 				<source media="(max-width: 500px)" srcset="${ blockData.image?.small?.src_2x || '' }">
 				<source media="(max-width: 1000px)" srcset="${ blockData.image?.medium?.src_2x || '' }">
 				<img alt="${ blockData.image?.alt_text || '' }" src="${ blockData.image?.large?.src_2x || blockData.image?.large?.url || '' }">
-			</picture>
-
+			<h3 class="fig-title">${ blockData.title || '' }</h3>
+				</picture>
             </li>
-            `
+        `
 
         channelBlocks.insertAdjacentHTML('beforeend', imageItem)
     }

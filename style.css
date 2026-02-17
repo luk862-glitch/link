@@ -149,7 +149,7 @@ nav {
   aspect-ratio: 1 / 1;
   overflow: hidden;
   border: .2rem solid var(--color);
-  padding: var(--gutter);
+  padding: 1rem;
 }
 
 .block img,
@@ -174,7 +174,7 @@ audio {
 }
 
 .fig-title {
-    text-align: left;
+    text-align: center;
 }
 /* img {
     padding-top: var(--gutter);
