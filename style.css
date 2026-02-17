@@ -16,16 +16,9 @@
 
 body {
     background-color: var(--bg-color);
-    margin-inline: var(--gutter);
     font-size: 110%;
 }
 
-@media (width>600px) {
-
-    body {
-    margin-inline: var(--gutter);
-    }
-}
 
 main{
     text-align: right;
@@ -135,12 +128,7 @@ nav {
     }
 }
 
-@media (width>1200px) {
 
-    #channel-blocks {
-    grid-template-columns: repeat(4, 1fr);
-    }
-}
 
 .block.plate{
   aspect-ratio: 1 / 1;
@@ -151,9 +139,11 @@ nav {
 }
 
 /* repeat plate-1, plate-2, plate-3 */
-.block.plate:nth-child(3n+1){ background-image: url("assets/plate-1.png"); }
-.block.plate:nth-child(3n+2){ background-image: url("assets/plate-2.png"); }
-.block.plate:nth-child(3n+3){ background-image: url("assets/plate-3.png"); }
+.block.plate:nth-child(4n+1){ background-image: url("assets/plate-1.png"); }
+.block.plate:nth-child(4n+2){ background-image: url("assets/plate-2.png"); }
+.block.plate:nth-child(4n+3){ background-image: url("assets/plate-3.png"); }
+.block.plate:nth-child(4n+4){ background-image: url("assets/plate-4.png"); }
+
 
 
 /* circle crop for content on top */
