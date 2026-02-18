@@ -37,7 +37,7 @@ let renderBlock = (blockData) => {
 				<source media="(width < 1000px)" srcset="${ blockData.image.medium.src_2x }">
 				<img alt="${blockData.image.alt_text}" src="${ blockData.image.large.src_2x }">
 			</picture>
-			<p><a href="${ blockData.source.url }">View↗</a></p>
+			<a href="${ blockData.source.url }">View↗</a>
 			</li>
 			`
 
@@ -67,16 +67,20 @@ let renderBlock = (blockData) => {
         channelBlocks.insertAdjacentHTML('beforeend', imageItem)
     }
 
+
 	// Text!
+	//was trying to wrap each plate in an <a> tag so it directs user to the original URL on Are.na so I asked Chatgpt
+	//Learned how to insert API data and make it clickable
+	//"$"" tells JavaScript “insert something”, "{}"" tells it what to insert, target="_blank" means open in a new tab, rel="noopener" tells the browser not to give the new page access to the original page
 	else if (blockData.type == 'Text') {
 		// …up to you!
 
 	let textItem = 
 	`
 		<li class="block plate">
+		<a href="https://www.are.na/block/${blockData.id}" target="_blank" rel="noopener">View text↗ </a>
 		<div class="plate-content">
-			<p>${blockData.title || ''}</p>
-			<p>${blockData.content.html || ''}</p>
+		<p>${blockData.content.html || ''}</p>
 		</li>
 	`
 
