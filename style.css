@@ -29,7 +29,7 @@ main{
 
 
 header {
-    padding-block: calc(var(--gutter)*6);
+    padding-block: calc(var(--gutter)*4);
     padding-inline: var(--gutter);
 }
 
@@ -195,7 +195,6 @@ nav {
 }
 
 /* make contents fill the circle */
-.plate-content
 .plate-content video,
 .plate-content iframe,
 .plate-content text,
