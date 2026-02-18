@@ -11,13 +11,16 @@ let placeChannelInfo = (channelData) => {
 	let channelCount = document.querySelector('#channel-count')
 	let channelLink = document.querySelector('#channel-link')
 
-	// Then set their content/attributes to our data:
-	channelTitle.innerHTML = channelData.title
-	// channelDescription.innerHTML = channelData.description.html
-	channelCount.innerHTML = channelData.counts.blocks
-	channelLink.href = `https://www.are.na/channel/${channelSlug}`
+	// Then set their content/attributes to our data (guarding missing nodes):
+	if (channelTitle) channelTitle.innerHTML = channelData.title || ''
+	if (channelDescription) channelDescription.innerHTML = channelData.description?.html || channelData.description || ''
+	if (channelCount) channelCount.innerHTML = channelData.counts?.blocks || ''
+	if (channelLink) {
+		channelLink.href = `https://www.are.na/channel/${channelSlug}`
+		if (!channelLink.textContent) channelLink.textContent = 'View on Are.na'
+		console.log('channel link set ->', channelLink.href)
+	}
 }
-
 
 
 // Then our big function for specific-block-type rendering:
@@ -30,7 +33,8 @@ let renderBlock = (blockData) => {
 		// Declares a “template literal” of the dynamic HTML we want.
 		let linkItem =
 			`
-            <li class="block plate">
+            <a href="https://www.are.na/block/${blockData.id}" target="_blank" rel="noopener">
+			<li class="block plate">
 			<div class="plate-content">
 			<picture>
 				<source media="(width < 500px)" srcset="${ blockData.image.small.src_2x }">
@@ -39,6 +43,7 @@ let renderBlock = (blockData) => {
 			</picture>
 			</div>
 			</li>
+			</a>
 			`
 
 		// And puts it into the page!
@@ -77,11 +82,12 @@ let renderBlock = (blockData) => {
 
 	let textItem = 
 	`
+		<a href="https://www.are.na/block/${blockData.id}" target="_blank" rel="noopener">
 		<li class="block plate">
-		<a href="https://www.are.na/block/${blockData.id}" target="_blank" rel="noopener">View text↗ </a>
 		<div class="plate-content">
 		<p>${blockData.content.html || ''}</p>
 		</li>
+		</a>
 	`
 
 	channelBlocks.insertAdjacentHTML('beforeend', textItem)
@@ -97,11 +103,13 @@ let renderBlock = (blockData) => {
 			// …still up to you, but we’ll give you the `video` element:
 			let videoItem =
 			`
-            <li class="block plate">
+            <a href="https://www.are.na/block/${blockData.id}" target="_blank" rel="noopener">
+			<li class="block plate">
 			<div class="plate-content">
 				<video controls src="${ blockData.attachment.url }"></video>
 				<img alt="${blockData.image.alt_text}" src="${ blockData.image.large.src_2x }">
 			</li>
+			</a>
 			`
 
 			channelBlocks.insertAdjacentHTML('beforeend', videoItem)
