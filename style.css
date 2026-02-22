@@ -212,6 +212,11 @@ audio {
     margin-top: 4rem;
 }
 
+.view-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* make text scrollable */
 /* .text-block {
