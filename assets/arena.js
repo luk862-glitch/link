@@ -79,16 +79,15 @@ let renderBlock = (blockData) => {
 	//"$"" tells JavaScript “insert something”, "{}"" tells it what to insert, target="_blank" means open in a new tab, rel="noopener" tells the browser not to give the new page access to the original page
 	else if (blockData.type == 'Text') {
 		// …up to you!
-
-	let textItem = 
-	`
-		<a href="https://www.are.na/block/${blockData.id}" target="_blank" rel="noopener">
+		let textItem = 
+		`
 		<li class="block plate">
-		<div class="plate-content">
-		<p>${blockData.content.html || ''}</p>
+			<a href="https://www.are.na/block/${blockData.id}" target="_blank" rel="noopener"
+			class="plate-content view-text">
+				<p>View text↗</p>
+			</a>
 		</li>
-		</a>
-	`
+		`
 
 	channelBlocks.insertAdjacentHTML('beforeend', textItem)
 }
@@ -152,10 +151,11 @@ let renderBlock = (blockData) => {
 			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
 			`
-			<li class="block plate text-block">
+			<li class="block plate">
 			<div class="plate-content">
-				${ blockData.embed.html }
-			</li>
+				${ blockData.embed.html}
+			</div>
+			</li>			
 			`
 
 			channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem)
