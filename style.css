@@ -144,7 +144,6 @@ nav {
   display: grid;
   animation-delay: 10s;
   animation-name: fadeIn;
-  /* gap: var(--gutter); */
   justify-content: center;
   width: 65%;
   margin: 0 auto;
@@ -164,6 +163,36 @@ nav {
     }
 }
 
+.des-spacing {
+    padding-block: 2rem;
+}
+
+#channel-description p{
+    font-family: var(--sans-serif);
+    color: var(--color);
+    font-size: calc(var(--body-copy)*1.1);
+    max-width: 35ch;
+    text-align: center;
+    margin: 0 auto;
+}
+
+@media (width>600px) {
+
+    #channel-description p{
+    font-size: calc(var(--body-copy)*1.7);
+}
+}
+
+@media (width>900px) {
+
+    .des-spacing {
+    padding-block: 4rem;
+}
+    #channel-description p{
+    font-size: calc(var(--body-copy)*2);
+    max-width: 40ch;
+}
+}
 
 
 .block.plate {
