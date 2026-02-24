@@ -46,11 +46,12 @@ header::before {
     z-index: -1; 
 }
 
-/* I was trying to make background image fixed on main
- and found background-attachment: fixed on https://www.w3schools.com/cssref/pr_background-attachment.php */
+/* /* I was trying to make background image fixed on main */
+ /* and found background-attachment: fixed on https://www.w3schools.com/cssref/pr_background-attachment.php */ */
+ /* and then I found that I should change background-size to contain to make it work & fit the container without cropping the sides according to https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Backgrounds_and_borders/Resizing_background_images#:~:text=look%20at%20these.-,contain,to%20see%20this%20in%20action. */
 main {
   background-image: url("assets/dining-table.png");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -58,8 +59,12 @@ main {
 /* and then I found out that background-attachment: fixed doesn't work on mobile, according to https://stackoverflow.com/questions/26372127/background-fixed-no-repeat-not-working-on-mobile. so I added a media query to make it work on desktop only. */
 @media (width>600px) {
     main {
-        background-attachment: fixed;
+        
+    background-attachment: fixed;
+    background-size: cover;
+
     }
+}
 
     
 h1 {
