@@ -46,6 +46,14 @@ header::before {
     z-index: -1; 
 }
 
+/* I was trying to make background image fixed on main and found background-attachment: fixed on https://www.w3schools.com/cssref/pr_background-attachment.php */
+main {
+  background-image: url("assets/dining-table.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;  /* keeps backgroud fixed */
+}
 
 h1 {
     font-family: var(--script);
