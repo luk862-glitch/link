@@ -46,15 +46,22 @@ header::before {
     z-index: -1; 
 }
 
-/* I was trying to make background image fixed on main and found background-attachment: fixed on https://www.w3schools.com/cssref/pr_background-attachment.php */
+/* I was trying to make background image fixed on main
+ and found background-attachment: fixed on https://www.w3schools.com/cssref/pr_background-attachment.php */
 main {
   background-image: url("assets/dining-table.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;  /* keeps backgroud fixed */
 }
 
+/* and then I found out that background-attachment: fixed doesn't work on mobile, according to https://stackoverflow.com/questions/26372127/background-fixed-no-repeat-not-working-on-mobile. so I added a media query to make it work on desktop only. */
+@media (width>600px) {
+    main {
+        background-attachment: fixed;
+    }
+
+    
 h1 {
     font-family: var(--script);
     color: var(--color);
