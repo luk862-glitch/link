@@ -46,9 +46,9 @@ header::before {
     z-index: -1; 
 }
 
-/* /* I was trying to make background image fixed on main */
- /* and found background-attachment: fixed on https://www.w3schools.com/cssref/pr_background-attachment.php */ */
- /* and then I found that I should change background-size to contain to make it work & fit the container without cropping the sides according to https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Backgrounds_and_borders/Resizing_background_images#:~:text=look%20at%20these.-,contain,to%20see%20this%20in%20action. */
+/* I was trying to make background image fixed on main 
+and found background-attachment: fixed on https://www.w3schools.com/cssref/pr_background-attachment.php
+and then I found that I should change background-size to contain to make it work & fit the container without cropping the sides according to https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Backgrounds_and_borders/Resizing_background_images#:~:text=look%20at%20these.-,contain,to%20see%20this%20in%20action. */
 main {
   background-image: url("assets/dining-table.png");
   background-size: contain;
