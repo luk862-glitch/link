@@ -145,6 +145,9 @@ nav {
   animation-delay: 10s;
   animation-name: fadeIn;
   /* gap: var(--gutter); */
+  justify-content: center;
+  width: 65%;
+  margin: 0 auto;
 }
 
 @media (width>600px) {
