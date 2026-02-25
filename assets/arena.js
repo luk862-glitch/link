@@ -125,6 +125,7 @@ let renderBlock = (blockData) => {
 	 let imageItem =
         `
         <li class="block plate image-block">
+		<a href="https://www.are.na/block/${blockData.id}" target="_blank" rel="noopener"
 		<div class="plate-content">
 		<picture>
 			<source media="(max-width: 500px)" srcset="${ blockData.image?.small?.src_2x}">
@@ -133,7 +134,8 @@ let renderBlock = (blockData) => {
 			</picture>
 		</div>
 		    <p class="plate-caption">${blockData.title || blockData.image?.alt_text}</p>
-        </li>
+        </a>
+		</li>
         `
 
         channelBlocks.insertAdjacentHTML('beforeend', imageItem)
