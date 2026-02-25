@@ -289,11 +289,6 @@ button {
 .block.plate:nth-child(4n+3){ background-image: url("assets/plate-3-t.png"); }
 .block.plate:nth-child(4n+4){ background-image: url("assets/plate-4-t.png"); }
 
-.block.plate:nth-child(4n+1):hover{ background-image: url("assets/plate-3-t.png"); }
-.block.plate:nth-child(4n+2):hover{ background-image: url("assets/plate-4-t.png"); }
-.block.plate:nth-child(4n+3):hover{ background-image: url("assets/plate-1-t.png"); }
-.block.plate:nth-child(4n+4):hover{ background-image: url("assets/plate-2-t.png"); }
-
 
 
 .block.plate {
