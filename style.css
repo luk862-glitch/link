@@ -171,7 +171,7 @@ button {
     font-family: var(--sans-serif);
     color: var(--color);
     font-size: var(--body-copy);
-    background: #6d466588;
+    background: rgba(128, 19, 19, 0.5);
     padding: var(--spacing);
     border-radius: 2rem;
     margin-bottom: 2rem;
