@@ -308,11 +308,11 @@ button {
 
 /* circle crop for content on top */
 .plate-content {
-  width: 50%;
-  height: 50%;
-  border-radius: 50%;
-  overflow: hidden;
-  display: block;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
 }
 
 /* make contents fill the circle */
@@ -348,12 +348,14 @@ audio {
 
 
 .plate-caption {
-  color: rgb(128, 19, 19);
-  font-size: .8rem;
-  text-align: center;
-  max-width: 20ch;
-  position: absolute;
-  top: 85%;
+    color: rgb(128, 19, 19);
+    font-size: .8rem;
+    text-align: center;
+    max-width: 20ch;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 
