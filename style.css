@@ -339,16 +339,7 @@ audio {
     align-items: center;
 }
 
-/* make text scrollable */
-/* .text-block {
-  aspect-ratio: 1 / 1;
-  overflow-y: auto;
-  text-align: left;
-} */
 
-/* .fig-title {
-    text-align: center;
-} */
 .plate-caption {
   color: rgb(128, 19, 19);
   font-size: .8rem;
