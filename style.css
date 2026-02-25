@@ -40,6 +40,9 @@ header::before {
     background-position: center;
     opacity: .9;
     z-index: -1; 
+
+    -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
 }
 
 @media (width>600px) {
