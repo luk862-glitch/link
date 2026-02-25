@@ -11,6 +11,70 @@ let placeChannelInfo = (channelData) => {
 	let channelCount = document.querySelector('#channel-count')
 	let channelLink = document.querySelector('#channel-link')
 
+	//filter nav buttons
+	let showAllButton = document.querySelector('#show-all')
+	let showImageButton = document.querySelector('#show-image')
+	let showVideoButton = document.querySelector('#show-video')
+	let showAudioButton = document.querySelector('#show-audio')
+	let showTextButton = document.querySelector('#show-text')
+	let showLinkButton = document.querySelector('#show-link')
+
+	let channelBlocks = document.querySelector('#channel-blocks')
+
+	showAllButton.addEventListener('click', () => {
+	channelBlocks.classList.remove('show-images')
+	channelBlocks.classList.remove('show-videos')
+	channelBlocks.classList.remove('show-audios')
+	channelBlocks.classList.remove('show-texts')
+	channelBlocks.classList.remove('show-links')
+	})
+
+
+	showImageButton.addEventListener('click', () => {
+	channelBlocks.classList.add('show-images')
+	channelBlocks.classList.remove('show-videos')
+	channelBlocks.classList.remove('show-audios')
+	channelBlocks.classList.remove('show-texts')
+	channelBlocks.classList.remove('show-links')
+	})
+
+
+	showVideoButton.addEventListener('click', () => {
+	channelBlocks.classList.add('show-videos')
+	channelBlocks.classList.remove('show-images')
+	channelBlocks.classList.remove('show-audios')
+	channelBlocks.classList.remove('show-texts')
+	channelBlocks.classList.remove('show-links')
+	})
+
+
+	showAudioButton.addEventListener('click', () => {
+	channelBlocks.classList.add('show-audios')
+	channelBlocks.classList.remove('show-images')
+	channelBlocks.classList.remove('show-videos')
+	channelBlocks.classList.remove('show-texts')
+	channelBlocks.classList.remove('show-links')
+	})
+
+
+	showTextButton.addEventListener('click', () => {
+	channelBlocks.classList.add('show-texts')
+	channelBlocks.classList.remove('show-images')
+	channelBlocks.classList.remove('show-videos')
+	channelBlocks.classList.remove('show-audios')
+	channelBlocks.classList.remove('show-links')
+	})
+
+
+	showLinkButton.addEventListener('click', () => {
+	channelBlocks.classList.add('show-links')
+	channelBlocks.classList.remove('show-images')
+	channelBlocks.classList.remove('show-videos')
+	channelBlocks.classList.remove('show-audios')
+	channelBlocks.classList.remove('show-texts')
+	})
+
+
 	// Then set their content/attributes to our data (guarding missing nodes):
 	if (channelTitle) channelTitle.innerHTML = channelData.title || ''
 	if (channelDescription) channelDescription.innerHTML = channelData.description?.html || channelData.description || ''
@@ -34,7 +98,7 @@ let renderBlock = (blockData) => {
 		let linkItem =
 			`
             <a href="https://www.are.na/block/${blockData.id}" target="_blank" rel="noopener">
-			<li class="block plate">
+			<li class="block plate link-block">
 			<div class="plate-content">
 			<picture>
 				<source media="(width < 500px)" srcset="${ blockData.image.small.src_2x }">
@@ -59,7 +123,7 @@ let renderBlock = (blockData) => {
         
 	 let imageItem =
         `
-        <li class="block plate">
+        <li class="block plate image-block">
 		<div class="plate-content">
 		<picture>
 			<source media="(max-width: 500px)" srcset="${ blockData.image?.small?.src_2x || '' }">
@@ -81,7 +145,7 @@ let renderBlock = (blockData) => {
 		// …up to you!
 		let textItem = 
 		`
-		<li class="block plate">
+		<li class="block plate text-block">
 			<a href="https://www.are.na/block/${blockData.id}" target="_blank" rel="noopener"
 			class="plate-content view-text">
 				<p>View text↗</p>
@@ -103,7 +167,7 @@ let renderBlock = (blockData) => {
 			let videoItem =
 			`
             <a href="https://www.are.na/block/${blockData.id}" target="_blank" rel="noopener">
-			<li class="block plate">
+			<li class="block plate video-block">
 			<div class="plate-content">
 				<video controls src="${ blockData.attachment.url }"></video>
 				<img alt="${blockData.image.alt_text}" src="${ blockData.image.large.src_2x }">
@@ -127,7 +191,7 @@ let renderBlock = (blockData) => {
 			// …still up to you, but here’s an `audio` element:
 			let audioItem =
 			`
-			<li class="block plate">
+			<li class="block plate audio-block">
 			<div class="plate-content">
 				<audio controls src="${ blockData.attachment.url }"></audio>
 			</li>
@@ -151,7 +215,7 @@ let renderBlock = (blockData) => {
 			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
 			`
-			<li class="block plate">
+			<li class="block plate video-block">
 			<div class="plate-content">
 				${ blockData.embed.html}
 			</div>
@@ -229,3 +293,4 @@ fetchJson(`https://api.are.na/v3/channels/${channelSlug}/contents?per=100&sort=p
 		renderBlock(blockData) // Pass the single block’s data to the render function.
 	})
 })
+

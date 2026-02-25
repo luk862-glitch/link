@@ -48,7 +48,6 @@ header::before {
     }
 }
 
-
 /* I was trying to make background image fixed on main 
 and found background-attachment: fixed on https://www.w3schools.com/cssref/pr_background-attachment.php
 and then I found that I should change background-size to contain to make it work & fit the container without cropping the sides according to https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Backgrounds_and_borders/Resizing_background_images#:~:text=look%20at%20these.-,contain,to%20see%20this%20in%20action. */
@@ -157,9 +156,11 @@ p {
 nav {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: .3rem;
     list-style: none;
     text-decoration: underline var(--color);
+    position:sticky;
+    top: 5%;
 }
 
 
@@ -167,12 +168,43 @@ nav {
 
 #channel-blocks {
   display: grid;
-  animation-delay: 10s;
-  animation-name: fadeIn;
   justify-content: center;
   width: 65%;
   margin: 0 auto;
 }
+
+/* filter nav */
+button {
+    font-family: var(--sans-serif);
+    color: var(--color);
+    font-size: var(--body-copy);
+    background: #6d466588;
+    padding: var(--spacing);
+    border-radius: 2rem;
+}
+
+
+
+#channel-blocks {
+
+    &.show-images,
+    &.show-videos,
+    &.show-audios,
+    &.show-texts,
+    &.show-links {
+        li {
+            display: none;
+        }
+    }
+
+    &.show-images li.image-block { display: grid; }
+    &.show-videos li.video-block { display: grid; }
+    &.show-audios li.audio-block { display: grid; }
+    &.show-texts  li.text-block  { display: grid; }
+    &.show-links  li.link-block  { display: grid; }
+}
+
+
 
 @media (width>600px) {
 
@@ -189,7 +221,7 @@ nav {
 }
 
 .des-spacing {
-    padding-block: 2rem;
+    padding-block: 5rem;
 }
 
 #channel-description p{
@@ -200,6 +232,7 @@ nav {
     text-align: center;
     margin: 0 auto;
 }
+
 
 @media (width>600px) {
 
@@ -221,11 +254,11 @@ nav {
 
 
 .block.plate {
-  aspect-ratio: 1 / 1;
-  display: grid;
-  place-items: center;
-  background-position: center;
-  background-size: contain;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+    background-position: center;
+    background-size: contain;
 }
 
 /* repeat plate-1, plate-2, plate-3 */
@@ -254,23 +287,33 @@ nav {
 .plate-content iframe,
 .plate-content text,
 .plate-content img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 
 audio {
 	block-size: revert;
-	inline-size: 110%;
-    margin-top: 2rem;
+	inline-size: 100%;
+    margin-top: 2rem;width: 100%;
+    max-width: 100%;
+    display: block;
+}
+
+.audio-block .plate-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .25rem;
+  box-sizing: border-box;
 }
 
 .view-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* make text scrollable */
