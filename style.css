@@ -329,9 +329,15 @@ button {
 audio {
 	block-size: revert;
 	inline-size: 100%;
-    max-width: 100%;
+    width: 100%;
+    display: block;
 }
 
+.audio-block .plate-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 .view-text {
