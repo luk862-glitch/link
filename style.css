@@ -280,14 +280,6 @@ button {
 }
 
 
-.block.plate {
-    aspect-ratio: 1 / 1;
-    display: grid;
-    place-items: center;
-    background-position: center;
-    background-size: contain;
-}
-
 
 /* repeat plate-1, plate-2, plate-3 */
 .block.plate:nth-child(4n+1){ background-image: url("assets/plate-1-t.png"); }
@@ -299,6 +291,17 @@ button {
 .block.plate:nth-child(4n+2):hover{ background-image: url("assets/plate-4-t.png"); }
 .block.plate:nth-child(4n+3):hover{ background-image: url("assets/plate-1-t.png"); }
 .block.plate:nth-child(4n+4):hover{ background-image: url("assets/plate-2-t.png"); }
+
+
+
+.block.plate {
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+}
 
 
 /* circle crop for content on top */
@@ -345,6 +348,15 @@ audio {
 /* .fig-title {
     text-align: center;
 } */
+.plate-caption {
+  color: rgb(128, 19, 19);
+  font-size: .8rem;
+  text-align: center;
+  max-width: 20ch;
+  position: absolute;
+  top: 85%;
+}
+
 
 a {
     text-decoration: underline;
