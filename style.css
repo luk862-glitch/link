@@ -34,13 +34,20 @@ header::before {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 60vh;
     background-image: url("assets/cake.gif");
     background-size: cover;
     background-position: center;
-    opacity: .7;
+    opacity: .9;
     z-index: -1; 
 }
+
+@media (width>600px) {
+    header::before {
+    height: 70vh;  
+    }
+}
+
 
 /* I was trying to make background image fixed on main 
 and found background-attachment: fixed on https://www.w3schools.com/cssref/pr_background-attachment.php
