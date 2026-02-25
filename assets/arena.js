@@ -106,6 +106,7 @@ let renderBlock = (blockData) => {
 				<img alt="${blockData.image.alt_text}" src="${ blockData.image.large.src_2x }">
 			</picture>
 			</div>
+			<p class="plate-caption">${blockData.title || blockData.image?.alt_text}</p>
 			</li>
 			</a>
 			`
@@ -126,10 +127,12 @@ let renderBlock = (blockData) => {
         <li class="block plate image-block">
 		<div class="plate-content">
 		<picture>
-			<source media="(max-width: 500px)" srcset="${ blockData.image?.small?.src_2x || '' }">
-			<source media="(max-width: 1000px)" srcset="${ blockData.image?.medium?.src_2x || '' }">
-			<img alt="${ blockData.image?.alt_text || '' }" src="${ blockData.image?.large?.src_2x || blockData.image?.large?.url || '' }">
+			<source media="(max-width: 500px)" srcset="${ blockData.image?.small?.src_2x}">
+			<source media="(max-width: 1000px)" srcset="${ blockData.image?.medium?.src_2x}">
+			<img alt="${ blockData.image?.alt_text || '' }" src="${ blockData.image?.large?.src_2x || blockData.image?.large?.url}">
 			</picture>
+		</div>
+		    <p class="plate-caption">${blockData.title || blockData.image?.alt_text}</p>
         </li>
         `
 
@@ -150,6 +153,7 @@ let renderBlock = (blockData) => {
 			class="plate-content view-text">
 				<p>View text↗</p>
 			</a>
+		<p class="plate-caption">${blockData.title || blockData.image?.alt_text}</p>
 		</li>
 		`
 
@@ -172,6 +176,7 @@ let renderBlock = (blockData) => {
 				<video controls src="${ blockData.attachment.url }"></video>
 				<img alt="${blockData.image.alt_text}" src="${ blockData.image.large.src_2x }">
 			</li>
+			<p class="plate-caption">${blockData.title || blockData.image?.alt_text}</p>
 			</a>
 			`
 
@@ -193,7 +198,8 @@ let renderBlock = (blockData) => {
 			`
 			<li class="block plate audio-block">
 			<div class="plate-content">
-				<audio controls src="${ blockData.attachment.url }"></audio>
+				<audio controls src="${blockData.attachment.url}"></audio>
+			<p class="plate-caption">${blockData.title || blockData.image?.alt_text}</p>
 			</li>
 			`
 
@@ -217,8 +223,9 @@ let renderBlock = (blockData) => {
 			`
 			<li class="block plate video-block">
 			<div class="plate-content">
-				${ blockData.embed.html}
+				${blockData.embed.html}
 			</div>
+			<p class="plate-caption">${blockData.title || blockData.image?.alt_text}</p>
 			</li>			
 			`
 
@@ -240,7 +247,7 @@ let renderBlock = (blockData) => {
 // A function to display the owner/collaborator info:
 let renderUser = (userData) => {
 	let channelUsers = document.querySelector('#channel-users') // Container.
-
+ 
 	let userAddress =
 		`
 		<address>
