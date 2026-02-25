@@ -164,6 +164,7 @@ nav {
     text-decoration: underline var(--color);
     position:sticky;
     top: 5%;
+    z-index: 10;
 }
 
 /* filter nav */
